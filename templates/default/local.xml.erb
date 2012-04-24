@@ -28,6 +28,12 @@
             </default_setup>
         </resources>
         <session_save><![CDATA[files]]></session_save>
+<% if node[:fqdn] != "apache-example.com" %>
+        <cache>                    
+             <backend>apc</backend>
+             <prefix>MAGE_</prefix>
+        </cache>
+<% end %>
     </global>
     <admin>
         <routers>
