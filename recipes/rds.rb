@@ -1,6 +1,8 @@
 require 'rubygems'
-Gem.clear_paths
-require 'mysql'
+if Gem.available?('mysql')
+  Gem.clear_paths
+  require 'mysql'
+end
 
 execute "mysql-install-mage-privileges" do
   command "/usr/bin/mysql -u #{node[:magento][:db][:username]} -p#{node[:magento][:db][:password]} -h#{node[:magento][:db][:host]} < /etc/mysql/mage-grants.sql"
