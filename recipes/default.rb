@@ -48,12 +48,12 @@ unless File.exists?("#{node[:magento][:dir]}/installed.flag")
 
   execute "pear-setup" do
     cwd node[:magento][:dir]
-    command "./pear mage-setup ."
+    command "pear mage-setup ."
   end
 
   execute "magento-install-core" do
     cwd node[:magento][:dir]
-    command "./pear install magento-core/Mage_All_Latest-#{node[:magento][:version]}"
+    command "pear install magento-core/Mage_All_Latest-#{node[:magento][:version]}"
   end
 
   bash "magento-install-site" do
