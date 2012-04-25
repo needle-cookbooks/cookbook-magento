@@ -46,15 +46,15 @@ unless File.exists?("#{node[:magento][:dir]}/installed.flag")
     command "tar --strip-components 1 -xzf #{Chef::Config[:file_cache_path]}/magento-downloader.tar.gz"
   end
 
-  execute "pear-setup" do
-    cwd node[:magento][:dir]
-    command "pear mage-setup ."
-  end
+  #execute "pear-setup" do
+  #  cwd node[:magento][:dir]
+  #  command "pear mage-setup ."
+  #end
 
-  execute "magento-install-core" do
-    cwd node[:magento][:dir]
-    command "pear install magento-core/Mage_All_Latest-#{node[:magento][:version]}"
-  end
+  #execute "magento-install-core" do
+  #  cwd node[:magento][:dir]
+  #  command "pear install magento-core/Mage_All_Latest-#{node[:magento][:version]}"
+  #end
 
   bash "magento-install-site" do
     cwd node[:magento][:dir]
